@@ -5,7 +5,7 @@ install:
   - pip install coveralls
 script:
   - make
-  - coverage run --source=rpn.py -m unittest
+  - coverage run --source=c4cs-f16-rpn -m unittest
 after-success:
   - coveralls
 
