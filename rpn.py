@@ -1,7 +1,10 @@
 #!/usr/bin/env python3
 
 import operator
-
+import readline
+import logging
+import coloredlogs
+import sys
 
 operators = {
 	'+': operator.add,
@@ -23,12 +26,18 @@ def calculate(myarg):
 			arg1 = stack.pop()
 			result = function(arg1, arg2)
 			stack.append(result)
-		print(stack)
+		logging.debug(stack)
 	if len(stack) != 1:
 		raise TypeError("Too many parameters")
 	return stack.pop()
 
 def main():
+	level = "INFO"
+	if len(sys.argv) > 1:
+		level = sys.argv[1].upper()
+		if (level == "DEBUG"):
+			coloredlogs.install(level='DEBUG', fmt="%(message)s")
+	logging.debug("Debug Logging On")
 	while True:
 		result = calculate(input("rpn calc> "))
 		print("Result: ", result)
