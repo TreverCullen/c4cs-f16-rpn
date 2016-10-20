@@ -6,6 +6,6 @@ install:
   - pip install coloredlogs
 script:
   - make
-  - coverage run -m unittest
+  - coverage run --source=rpn.py -m unittest
 after_success:
   - coveralls
