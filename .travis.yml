@@ -2,10 +2,10 @@ language: python
 python:
   - "3.5"
 install:
-  - pip3 install coveralls
-  - pip3 install coloredlogs
+  - pip install coveralls
+  - pip install coloredlogs
 script:
   - make
-  - coverage3 run -m unittest
+  - coverage run -m unittest
 after-success:
   - coveralls
