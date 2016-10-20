@@ -3,9 +3,9 @@ python:
   - "3.5"
 install:
   - pip install coveralls
+  - pip3 install coloredlogs
 script:
   - make
-  - coverage run -m unittest
+  - coverage3 run -m unittest
 after-success:
   - coveralls
-
